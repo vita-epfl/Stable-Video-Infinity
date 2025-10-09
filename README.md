@@ -6,9 +6,9 @@
 
 <h1>Stable Video Infinity: Infinite-Length Video Generation with Error Recycling</h1>
 
-[Wuyang Li](https://wymancv.github.io/wuyang.github.io/)<sup>1</sup> · [Wentao Pan](https://scholar.google.com/citations?user=sHKkAToAAAAJ&hl=zh-CN)<sup>1,2</sup> · [Po-Chien Luan](https://scholar.google.com/citations?user=Y2Oth4MAAAAJ&hl=zh-TW)<sup>1</sup> · [Yang Gao](https://scholar.google.com/citations?user=rpT0Q6AAAAAJ&hl=en)<sup>1</sup> · [Alexandre Alahi](https://scholar.google.com/citations?user=UIhXQ64AAAAJ&hl=en)<sup>1</sup>
+[Wuyang Li](https://wymancv.github.io/wuyang.github.io/) · [Wentao Pan](https://scholar.google.com/citations?user=sHKkAToAAAAJ&hl=zh-CN) · [Po-Chien Luan](https://scholar.google.com/citations?user=Y2Oth4MAAAAJ&hl=zh-TW) · [Yang Gao](https://scholar.google.com/citations?user=rpT0Q6AAAAAJ&hl=en) · [Alexandre Alahi](https://scholar.google.com/citations?user=UIhXQ64AAAAJ&hl=en)
 
-<sup>1</sup>VITA@EPFL; <sup>2</sup>CUHK
+[VITA@EPFL](https://www.epfl.ch/labs/vita/)
 
 <a href='https://stable-video-infinity.github.io/homepage/'><img src='https://img.shields.io/badge/Project-Page-green'></a>
 <a href=''><img src='https://img.shields.io/badge/Technique-Report-red'></a>
