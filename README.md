@@ -54,7 +54,7 @@ huggingface-cli download Wan-AI/Wan2.1-I2V-14B-480P --local-dir ./weights/Wan2.1
 
 | Model | Task | Input | Output | Hugging Face Link | Comments |
 |-------|------|-------|--------|-------------------|------------------|
-| **ALL** | Infinite possibility | Image + Audio | Dance video | [🤗 Folder](https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0) |Family bucket! I want to play with all! |
+| **ALL** | Infinite possibility | Image + X | Infinite video [🤗 Folder](https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0) |Family bucket! I want to play with all! |
 | **SVI-Shot** | Single-shot generation | Image + Text prompt | Long video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-shot.safetensors?download=true) | Generate consistent long video with 1 text prompt. (This will never drift) |
 | **SVI-Film** | Cinematic generation | Image + Text prompt stream | Film-style video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-film.safetensors?download=true) |  Generate creative long video with 1 text prompt stream (5 second per text). |
 | **SVI-Film (Transition)** | Cinematic generation | Image + Text prompt stream | Film-style video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-film-transitions.safetensors?download=true) |Generate creative long video with 1 text prompt stream. (More scene transitions due to the training data) |
@@ -240,6 +240,7 @@ You can also use our benchmark datasets made by our Automatic Prompt Stream Engi
 | **Creative Video Generation**     | Test|[🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/creative_video_gen) | Generate 1 long video using 1 text prompt stream according to storyline (1 prompt for 5 sec clip) |
 | **Creative Video Generation (More prompts)**     | Test|[🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/creative_video_gen_longer) | Generate 1 long video using 1 text prompt stream according to storyline (1 prompt for 5 sec clip) |
 
+The following is the training data we used for SVI family.
 
 | Data | Use | HuggingFace Link |  Comment |
 |-------|------|------|-------|
