@@ -1,0 +1,10 @@
+prompts = ["A Siamese kitten rests snugly inside a straw hat, its head slightly tilted as it gazes curiously to the side.",
+"The Siamese kitten decides to explore the room and jumps out of the hat onto the soft carpet below.",
+"The Siamese kitten sees a feather toy and immediately pounces on it, chasing it around the living room.",
+"The feather toy becomes stuck in a corner, causing the Siamese kitten to climb up a nearby piece of furniture to reach it.",
+"As the Siamese kitten plays with the feather toy, it accidentally scratches the armrest of the sofa.",
+"The owner notices the scratch mark and gently removes the Siamese kitten from the furniture, placing it back into the hat for safety.",
+"The Siamese kitten, still playful, decides to investigate a box that has been moved to the floor.",
+"Inside the box, the Siamese kitten discovers a small toy mouse, which it pounces on with great enthusiasm.",
+"The Siamese kitten's excitement grows as it chases the toy mouse around the house, causing some minor chaos.",
+"After a while, the Siamese kitten tires itself out and falls asleep on the living room floor, still clutching the toy mouse."]

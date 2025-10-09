@@ -1,0 +1,7 @@
+experiments
+logs
+videos
+*.egg-info
+.gradio
+weights/*
+__pycache__

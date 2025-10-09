@@ -1,0 +1,1 @@
+prompts = ["A sleek white motor yacht speeds across the turquoise blue sea, leaving a dramatic wake of white foam behind it under a clear blue sky."]
