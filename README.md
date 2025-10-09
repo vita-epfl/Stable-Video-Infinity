@@ -20,7 +20,7 @@
 
 ## ✨ Highlight
 
-### *Stable Video Infinity* (SVI) is able to generate ANY-length videos with high temporal consistency, plausible scene transitions, and controllable streaming storylines in ANY domains.
+*Stable Video Infinity* (SVI) is able to generate ANY-length videos with high temporal consistency, plausible scene transitions, and controllable streaming storylines in ANY domains.
 
 - **OpenSVI**: Everything is open-sourced: training & evaluation scripts, datasets, and more.
 - **Infinite Length**: No inherent limit on video duration; generate arbitrarily long stories (see the 10‑minute “Tom and Jerry” demo).
