@@ -18,6 +18,10 @@
 
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
 
+<div align="center">
+[![Watch the video](assets/youtube.png)](https://www.youtube.com/watch?v=GwtXKBhy5H8)
+</div>
+
 ## ✨ Highlight
 
 *Stable Video Infinity* (SVI) is able to generate ANY-length videos with high temporal consistency, plausible scene transitions, and controllable streaming storylines in ANY domains.
