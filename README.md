@@ -19,7 +19,7 @@
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
 
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=GwtXKBhy5H8">
+  <a href="https://youtu.be/p71Wp1FuqTw">
     <img src="assets/youtube.png" alt="Watch the video">
   </a>
 </div>
