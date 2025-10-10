@@ -19,7 +19,9 @@
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
 
 <div align="center">
-[![Watch the video](assets/youtube.png)](https://www.youtube.com/watch?v=GwtXKBhy5H8)
+  <a href="https://www.youtube.com/watch?v=GwtXKBhy5H8">
+    <img src="assets/youtube.png" alt="Watch the video">
+  </a>
 </div>
 
 ## ✨ Highlight
