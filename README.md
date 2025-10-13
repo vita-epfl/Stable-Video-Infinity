@@ -33,6 +33,15 @@
 - **Versatile**: Supports diverse in-the-wild generation tasks: multi-scene short films, single‑scene animations, skeleton-/audio-conditioned generation, cartoons, and more.
 - **Efficient**: Only LoRA adapters are tuned, requiring very little training data: anyone can make their own SVI easily.
 
+
+## 🔥 News
+
+[10-13-2025] SVI is now fully open-sourced and online!
+
+
+PS: If you think this project is useful, we would really appreciate your star ⭐, which encourages us to better develop the open-source community! This repository will be continuously maintained. Thank you!
+
+
 ## 🔧 Environment Setup
 
 ```bash
@@ -263,10 +272,13 @@ The following is the training data we used for SVI family.
 ```bash
 huggingface-cli download --repo-type dataset vita-video-gen/svi-benchmark --local-dir ./data/svi-benchmark
 ```
-<!-- ## 📋 TODO List
+
+## 📋 TODO List
 
 - [x] Release everything about SVI
-- [ ] Smaller Models -->
+- [ ] Wan 2.2 based SVI
+- [ ] Streaming generation model
+- [Call for TODO]  Write down your idea in the Issue
 
 ## 🙏 Acknowledgement
 
@@ -284,7 +296,7 @@ If you find our work helpful for your research, please consider citing our paper
 @article{li2025stable,
       title={Stable Video Infinity: Infinite-Length Video Generation with Error Recycling}, 
       author={Wuyang Li and Wentao Pan and Po-Chien Luan and Yang Gao and Alexandre Alahi},
-      journal={arXiv preprint arXiv: TODO},
+      journal={arXiv preprint arXiv: arXiv:2510.09212},
       year={2025},
 }
 ```
@@ -293,6 +305,8 @@ If you find our work helpful for your research, please consider citing our paper
 
 We propose **Stable Video Infinity (SVI)** that is able to generate infinite-length videos with high temporal consistency, plausible scene transitions, and controllable streaming storylines. While existing long-video methods attempt to *mitigate accumulated errors* via handcrafted anti-drifting (e.g., modified noise scheduler, frame anchoring), they remain limited to single-prompt extrapolation, producing homogeneous scenes with repetitive motions. We identify that the fundamental challenge extends beyond error accumulation to a critical discrepancy between the training assumption (seeing clean data) and the test-time autoregressive reality (conditioning on self-generated, error-prone outputs). To bridge this hypothesis gap, SVI incorporates **Error-Recycling Fine-Tuning**, a new type of efficient training that recycles the Diffusion Transformer (DiT)'s self-generated errors into supervisory prompts, thereby encouraging DiT to *actively identify and correct its own errors*. This is achieved by injecting, collecting, and banking errors through closed-loop recycling, autoregressively learning from error-injected feedback. Specifically, we (i) inject historical errors made by DiT to intervene on clean inputs, simulating error-accumulated trajectories in flow matching; (ii) efficiently approximate predictions with one-step bidirectional integration and calculate errors with residuals; (iii) dynamically bank errors into replay memory across discretized timesteps, which are resampled for new input. SVI is able to scale videos from seconds to infinite durations with no additional inference cost, while remaining compatible with diverse conditions (e.g., audio, skeleton, and text streams). We evaluate SVI on three benchmarks, including consistent, creative, and conditional settings, thoroughly verifying its versatility and state-of-the-art role.
 
+
+
 <div align="center">
-    <img width="80%" alt="SVI intro" src="assets/intro.png"/>
+    <img width="100%" alt="SVI intro" src="assets/intro.png"/>
 </div>
