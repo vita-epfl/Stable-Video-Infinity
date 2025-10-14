@@ -56,6 +56,7 @@ conda activate svi
 # For svi family
 pip install -e .
 pip install flash_attn==2.8.0.post2
+# If you encounter issues with flash-attn installation, please refer to the details at https://github.com/vita-epfl/Stable-Video-Infinity/issues/3.
 
 conda install -c conda-forge ffmpeg
 conda install -c conda-forge librosa
