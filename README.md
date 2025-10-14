@@ -41,6 +41,8 @@
 
 PS: If you think this project is useful, we would really appreciate your star ⭐, which encourages us to better develop the open-source community! This repository will be continuously maintained. Thank you!
 
+### Please refer to Frequently Asked Questions: [FAQ](assets/FAQ.md)
+
 
 ## 🔧 Environment Setup
 
@@ -266,7 +268,7 @@ The following is the training data we used for SVI family.
 | **Customized Datasets**     | Train|[🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/customized_dataset) | You can make your customized datasets using this format |
 | **Consistent/Creative Video Generation**   | Train|[🤗 Dataset](https://huggingface.co/datasets/LanguageBind/Open-Sora-Plan-v1.1.0/tree/main/all_mixkit) | MixKit Dataset  |
 | **Consistent/Creative Video Generation**   | Train|[🤗 Dataset](https://huggingface.co/datasets/APRIL-AIGC/UltraVideo-Long) | UltraVideo Dataset |
-| **Human Talking**     | Train|[🤗 Dataset](https://huggingface.co/fudan-generative-ai/hallo3) | Hallo v3 |
+| **Human Talking**     | Train|[🤗 Dataset](https://huggingface.co/fudan-generative-ai/hallo3) | 5k subset from Hallo v |
 | **Human Dancing**     | Train|[🤗 Dataset](https://www.kaggle.com/datasets/yasaminjafarian/tiktokdataset) | TikTok |
 
 ```bash
