@@ -10,10 +10,28 @@
 
 [VITA@EPFL](https://www.epfl.ch/labs/vita/)
 
-`<a href='https://stable-video-infinity.github.io/homepage/'><img src='https://img.shields.io/badge/Project-Page-green'>``</a>`
-`<a href='https://arxiv.org/abs/2510.09212'><img src='https://img.shields.io/badge/Technique-Report-red'>``</a>`
-`<a href='https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'>``</a>`
-`<a href='https://huggingface.co/datasets/vita-video-gen/svi-benchmark'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-orange'>``</a>`
+<a href='https://stable-video-infinity.github.io/homepage/'><img src='https://img.shields.io/badge/Project-Page-green'></a>
+<a href='https://arxiv.org/abs/2510.09212'><img src='https://img.shields.io/badge/Technique-Report-red'></a>
+<a href='https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
+<a href='https://huggingface.co/datasets/vita-video-gen/svi-benchmark'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-orange'></a>
+</div>
+
+**📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
+
+<div align="center">
+  <a href="https://youtu.be/p71Wp1FuqTw">
+    <img src="assets/youtube.png" alt="Watch the video">
+  </a>
+</div>
+
+## ✨ Highlight
+
+*Stable Video Infinity* (SVI) is able to generate ANY-length videos with high temporal consistency, plausible scene transitions, and controllable streaming storylines in ANY domains.
+
+- **OpenSVI**: Everything is open-sourced: training & evaluation scripts, datasets, and more.
+- **Infinite Length**: No inherent limit on video duration; generate arbitrarily long stories (see the 10‑minute “Tom and Jerry” demo).
+- **Versatile**: Supports diverse in-the-wild generation tasks: multi-scene short films, single‑scene animations, skeleton-/audio-conditioned generation, cartoons, and more.
+- **Efficient**: Only LoRA adapters are tuned, requiring very little training data: anyone can make their own SVI easily.
 
 </div>
 
@@ -44,7 +62,7 @@ PS: If you think this project is useful, we would really appreciate your star �
 
 ## 🔧 Environment Setup
 
-We have tested the environment with A100 80G, Cuda 12.0 (cuda 12.X should also work). This is our reproduced [environment](https://github.com/user-attachments/files/22899587/env.txt). The following script will automatically install the latest torch==2.8.0. We have also tested with the lower version: torch==2.4.1 and torchvision==0.19.1. Feel free to let me know if you meet issues.
+We have tested the environment with A100 80G, cuda 12.0 (cuda 12.X should also work). This is our reproduced [environment](https://github.com/user-attachments/files/22899587/env.txt). The following script will automatically install the latest torch==2.8.0. We have also tested with the lower version: torch==2.4.1 and torchvision==0.19.1. Feel free to let me know if you meet issues.
 
 ```bash
 conda create -n svi python=3.10 
