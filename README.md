@@ -62,7 +62,7 @@ PS: If you think this project is useful, we would really appreciate your star â­
 
 ## ðŸ”§ Environment Setup
 
-We have tested the environment with A100 80G, cuda 12.0 (cuda 12.X should also work). This is our reproduced [environment](https://github.com/user-attachments/files/22899587/env.txt). The following script will automatically install the latest torch==2.8.0. We have also tested with the lower version: torch==2.4.1 and torchvision==0.19.1. Feel free to let me know if you meet issues.
+We have tested the environment with A100 80G, cuda 12.0, and torch 2.8.0. This is our reproduced [environment](https://github.com/user-attachments/files/22899587/env.txt). The following script will automatically install the older version torch==2.5.0. We have also tested with the lower version: torch==2.4.1 and torch==2.5.0. Feel free to let me know if you meet issues.
 
 ```bash
 conda create -n svi python=3.10 
