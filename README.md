@@ -37,21 +37,6 @@
 
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
 
-<div align="center">
-  <a href="https://youtu.be/p71Wp1FuqTw">
-    <img src="assets/youtube.png" alt="Watch the video">
-  </a>
-</div>
-
-## ✨ Highlight
-
-*Stable Video Infinity* (SVI) is able to generate ANY-length videos with high temporal consistency, plausible scene transitions, and controllable streaming storylines in ANY domains.
-
-- **OpenSVI**: Everything is open-sourced: training & evaluation scripts, datasets, and more.
-- **Infinite Length**: No inherent limit on video duration; generate arbitrarily long stories (see the 10‑minute “Tom and Jerry” demo).
-- **Versatile**: Supports diverse in-the-wild generation tasks: multi-scene short films, single‑scene animations, skeleton-/audio-conditioned generation, cartoons, and more.
-- **Efficient**: Only LoRA adapters are tuned, requiring very little training data: anyone can make their own SVI easily.
-
 ## 🔥 News
 
 [10-13-2025] SVI is now fully open-sourced and online!
