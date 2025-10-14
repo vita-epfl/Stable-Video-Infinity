@@ -10,10 +10,11 @@
 
 [VITA@EPFL](https://www.epfl.ch/labs/vita/)
 
-<a href='https://stable-video-infinity.github.io/homepage/'><img src='https://img.shields.io/badge/Project-Page-green'></a>
-<a href='https://arxiv.org/abs/2510.09212'><img src='https://img.shields.io/badge/Technique-Report-red'></a>
-<a href='https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
-<a href='https://huggingface.co/datasets/vita-video-gen/svi-benchmark'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-orange'></a>
+`<a href='https://stable-video-infinity.github.io/homepage/'><img src='https://img.shields.io/badge/Project-Page-green'>``</a>`
+`<a href='https://arxiv.org/abs/2510.09212'><img src='https://img.shields.io/badge/Technique-Report-red'>``</a>`
+`<a href='https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'>``</a>`
+`<a href='https://huggingface.co/datasets/vita-video-gen/svi-benchmark'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-orange'>``</a>`
+
 </div>
 
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
@@ -33,18 +34,17 @@
 - **Versatile**: Supports diverse in-the-wild generation tasks: multi-scene short films, single‑scene animations, skeleton-/audio-conditioned generation, cartoons, and more.
 - **Efficient**: Only LoRA adapters are tuned, requiring very little training data: anyone can make their own SVI easily.
 
-
 ## 🔥 News
 
 [10-13-2025] SVI is now fully open-sourced and online!
-
 
 PS: If you think this project is useful, we would really appreciate your star ⭐, which encourages us to better develop the open-source community! This repository will be continuously maintained. Thank you!
 
 ### Please refer to Frequently Asked Questions: [FAQ](assets/FAQ.md)
 
-
 ## 🔧 Environment Setup
+
+We have tested the environment with A100 80G, Cuda 12.0 (cuda 12.X should also work). This is our reproduced [environment](https://github.com/user-attachments/files/22899587/env.txt). The following script will automatically install the latest torch==2.8.0. We have also tested with the lower version: torch==2.4.1 and torchvision==0.19.1. Feel free to let me know if you meet issues.
 
 ```bash
 conda create -n svi python=3.10 
@@ -69,19 +69,17 @@ huggingface-cli download Wan-AI/Wan2.1-I2V-14B-480P --local-dir ./weights/Wan2.1
 
 ### Download SVI Family
 
-| Model | Task | Input | Output | Hugging Face Link | Comments |
-|-------|------|-------|--------|-------------------|------------------|
-| **ALL** | Infinite possibility | Image + X | X video | [🤗 Folder](https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0) |Family bucket! I want to play with all! |
-| **SVI-Shot** | Single-scene generation | Image + Text prompt | Long video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-shot.safetensors?download=true) | Generate consistent long video with 1 text prompt. (This will never drift) |
-| **SVI-Film** | Multi-scene generation | Image + Text prompt stream | Film-style video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-film.safetensors?download=true) |  Generate creative long video with 1 text prompt stream (5 second per text). |
-| **SVI-Film (Transition)** |  Multi-scene generation | Image + Text prompt stream | Film-style video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-film-transitions.safetensors?download=true) |Generate creative long video with 1 text prompt stream. (More scene transitions due to the training data) |
-| **SVI-Tom&Jerry** | Cartoon animation | Image  | Cartoon video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-tom.safetensors?download=true) | Generate creative long cartoon videos with 1 text prompt stream (This will never drift in our 20 min test)|
-| **SVI-Talk** | Talking head | Image + Audio | Talking video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-talk.safetensors?download=true) |Generate long videos with audio-conditioned human speaking |
-| **SVI-Dance** | Dancing animation | Image + Skeleton | Dance video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-dance.safetensors?download=true) | Generate long videos with skeleton-conditioned human dancing  |
-
+| Model                           | Task                    | Input                      | Output           | Hugging Face Link                                                                                                                | Comments                                                                                                   |
+| ------------------------------- | ----------------------- | -------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **ALL**                   | Infinite possibility    | Image + X                  | X video          | [🤗 Folder](https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0)                                                  | Family bucket! I want to play with all!                                                                    |
+| **SVI-Shot**              | Single-scene generation | Image + Text prompt        | Long video       | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-shot.safetensors?download=true)             | Generate consistent long video with 1 text prompt. (This will never drift)                                 |
+| **SVI-Film**              | Multi-scene generation  | Image + Text prompt stream | Film-style video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-film.safetensors?download=true)             | Generate creative long video with 1 text prompt stream (5 second per text).                                |
+| **SVI-Film (Transition)** | Multi-scene generation  | Image + Text prompt stream | Film-style video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-film-transitions.safetensors?download=true) | Generate creative long video with 1 text prompt stream. (More scene transitions due to the training data)  |
+| **SVI-Tom&Jerry**         | Cartoon animation       | Image                      | Cartoon video    | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-tom.safetensors?download=true)              | Generate creative long cartoon videos with 1 text prompt stream (This will never drift in our 20 min test) |
+| **SVI-Talk**              | Talking head            | Image + Audio              | Talking video    | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-talk.safetensors?download=true)             | Generate long videos with audio-conditioned human speaking                                                 |
+| **SVI-Dance**             | Dancing animation       | Image + Skeleton           | Dance video      | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-dance.safetensors?download=true)            | Generate long videos with skeleton-conditioned human dancing                                               |
 
 Note: If you want to play with T2V, you can directly use SVI with an image generated by any T2I model!
-
 
 ```bash
 # login with your fine-grained token
@@ -195,7 +193,7 @@ bash gradio_demo.sh
 
 ## 🔥 Train Your Own SVI
 
-We have prepared the toy training data `data/toy_train/`. You can simply follow the data format to train SVI with your custom data.  
+We have prepared the toy training data `data/toy_train/`. You can simply follow the data format to train SVI with your custom data.
 Please modify `--num_nodes` if you use more nodes for training. We have tested both 8 and 64 GPUs for training, where larger batch-size gave a better performance.
 
 ### SVI-Shot
@@ -255,21 +253,21 @@ Please modify the inference scripts in `./scripts/test/` accordingly by changing
 
 You can also use our benchmark datasets made by our Automatic Prompt Stream Engine (see Appendix. A for more details), where you can find images and associated prompt streams according to specific storylines.
 
-| Data | Use | HuggingFace Link |  Comment |
-|-------|------|------|-------|
-| **Consistent Video Generation**   | Test|[🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/consisent_video_gen) | Generate 1 long video using 1 text prompt |
-| **Creative Video Generation**     | Test|[🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/creative_video_gen) | Generate 1 long video using 1 text prompt stream according to storyline (1 prompt for 5 sec clip) |
-| **Creative Video Generation (More prompts)**     | Test|[🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/creative_video_gen_longer) | Generate 1 long video using 1 text prompt stream according to storyline (1 prompt for 5 sec clip) |
+| Data                                               | Use  | HuggingFace Link                                                                                            | Comment                                                                                           |
+| -------------------------------------------------- | ---- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Consistent Video Generation**              | Test | [🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/consisent_video_gen)       | Generate 1 long video using 1 text prompt                                                         |
+| **Creative Video Generation**                | Test | [🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/creative_video_gen)        | Generate 1 long video using 1 text prompt stream according to storyline (1 prompt for 5 sec clip) |
+| **Creative Video Generation (More prompts)** | Test | [🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/creative_video_gen_longer) | Generate 1 long video using 1 text prompt stream according to storyline (1 prompt for 5 sec clip) |
 
 The following is the training data we used for SVI family.
 
-| Data | Use | HuggingFace Link |  Comment |
-|-------|------|------|-------|
-| **Customized Datasets**     | Train|[🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/customized_dataset) | You can make your customized datasets using this format |
-| **Consistent/Creative Video Generation**   | Train|[🤗 Dataset](https://huggingface.co/datasets/LanguageBind/Open-Sora-Plan-v1.1.0/tree/main/all_mixkit) | MixKit Dataset  |
-| **Consistent/Creative Video Generation**   | Train|[🤗 Dataset](https://huggingface.co/datasets/APRIL-AIGC/UltraVideo-Long) | UltraVideo Dataset |
-| **Human Talking**     | Train|[🤗 Dataset](https://huggingface.co/fudan-generative-ai/hallo3) | 5k subset from Hallo v |
-| **Human Dancing**     | Train|[🤗 Dataset](https://www.kaggle.com/datasets/yasaminjafarian/tiktokdataset) | TikTok |
+| Data                                           | Use   | HuggingFace Link                                                                                     | Comment                                                 |
+| ---------------------------------------------- | ----- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| **Customized Datasets**                  | Train | [🤗 Dataset](https://huggingface.co/datasets/vita-video-gen/svi-benchmark/tree/main/customized_dataset) | You can make your customized datasets using this format |
+| **Consistent/Creative Video Generation** | Train | [🤗 Dataset](https://huggingface.co/datasets/LanguageBind/Open-Sora-Plan-v1.1.0/tree/main/all_mixkit)   | MixKit Dataset                                          |
+| **Consistent/Creative Video Generation** | Train | [🤗 Dataset](https://huggingface.co/datasets/APRIL-AIGC/UltraVideo-Long)                                | UltraVideo Dataset                                      |
+| **Human Talking**                        | Train | [🤗 Dataset](https://huggingface.co/fudan-generative-ai/hallo3)                                         | 5k subset from Hallo v                                  |
+| **Human Dancing**                        | Train | [🤗 Dataset](https://www.kaggle.com/datasets/yasaminjafarian/tiktokdataset)                             | TikTok                                                  |
 
 ```bash
 huggingface-cli download --repo-type dataset vita-video-gen/svi-benchmark --local-dir ./data/svi-benchmark
@@ -277,17 +275,18 @@ huggingface-cli download --repo-type dataset vita-video-gen/svi-benchmark --loca
 
 ## 📋 TODO List
 
-- [x] Release everything about SVI
+- [X] Release everything about SVI
 - [ ] Wan 2.2 based SVI
 - [ ] Streaming generation model
+
 - [Call for TODO]  Write down your idea in the Issue
 
 ## 🙏 Acknowledgement
 
 We greatly appreciate the tremendous effort for the following fantastic projects!
 
-[1] [Wan: Open and Advanced Large-Scale Video Generative Models](https://arxiv.org/abs/2503.20314)  
-[2] [UniAnimate-DiT: Human Image Animation with Large-Scale Video Diffusion Transformer](https://arxiv.org/abs/2504.11289)  
+[1] [Wan: Open and Advanced Large-Scale Video Generative Models](https://arxiv.org/abs/2503.20314)
+[2] [UniAnimate-DiT: Human Image Animation with Large-Scale Video Diffusion Transformer](https://arxiv.org/abs/2504.11289)
 [3] [Let Them Talk: Audio-Driven Multi-Person Conversational Video Generation](https://arxiv.org/abs/2505.22647)
 
 ## ❤️ Citation
@@ -306,8 +305,6 @@ If you find our work helpful for your research, please consider citing our paper
 ## 📌 Abstract
 
 We propose **Stable Video Infinity (SVI)** that is able to generate infinite-length videos with high temporal consistency, plausible scene transitions, and controllable streaming storylines. While existing long-video methods attempt to *mitigate accumulated errors* via handcrafted anti-drifting (e.g., modified noise scheduler, frame anchoring), they remain limited to single-prompt extrapolation, producing homogeneous scenes with repetitive motions. We identify that the fundamental challenge extends beyond error accumulation to a critical discrepancy between the training assumption (seeing clean data) and the test-time autoregressive reality (conditioning on self-generated, error-prone outputs). To bridge this hypothesis gap, SVI incorporates **Error-Recycling Fine-Tuning**, a new type of efficient training that recycles the Diffusion Transformer (DiT)'s self-generated errors into supervisory prompts, thereby encouraging DiT to *actively identify and correct its own errors*. This is achieved by injecting, collecting, and banking errors through closed-loop recycling, autoregressively learning from error-injected feedback. Specifically, we (i) inject historical errors made by DiT to intervene on clean inputs, simulating error-accumulated trajectories in flow matching; (ii) efficiently approximate predictions with one-step bidirectional integration and calculate errors with residuals; (iii) dynamically bank errors into replay memory across discretized timesteps, which are resampled for new input. SVI is able to scale videos from seconds to infinite durations with no additional inference cost, while remaining compatible with diverse conditions (e.g., audio, skeleton, and text streams). We evaluate SVI on three benchmarks, including consistent, creative, and conditional settings, thoroughly verifying its versatility and state-of-the-art role.
-
-
 
 <div align="center">
     <img width="100%" alt="SVI intro" src="assets/intro.png"/>
