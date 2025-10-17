@@ -24,18 +24,23 @@ In our internal comparisons with InfiniteTalk on very small-scale samples:
 
 ### Potential Issue 1: Slight color shift. This issue has two main causes:
 
-1. **VAE encoding-decoding errors**: The VAE itself accumulates errors through repeated encoding-decoding, especially in static environments. If you repeatedly encode-decode the same image, you'll notice progressive quality degradation. Since our method operates in latent space, these errors can partially escape SVI's constraints.
+1. **VAE encoding-decoding errors**: The VAE itself accumulates errors through repeated encoding-decoding, especially in static environments. If you repeatedly encode and decode the same image, you'll notice progressive quality degradation. Since our method operates in latent space, these errors can partially escape SVI's constraints.
 2. **Limited training data scope**: Our SVI uses LoRA trained on small-scale datasets, so its style and error patterns are constrained by the training data types. When test images or text prompts differ significantly from the training distribution, sub-optimal generation can occur.
 
 
 **Best solution**: Fine-tune with a small amount of video clips that match your target style/domain. This is the most effective way to adapt SVI to your specific use case. Moreover, LoRA not only learns error-elimination capabilities but also indirectly learns the generation style of the videos. Therefore, you can better control the long-range style consistency through LoRA fine-tuning (e.g., Tom & Jerry), which only requires several hours of tuning.
 
 
-### Potential Issue 2: Limited motion and scene transition 
+### Potential Issue 2: Limited Motion and Scene Transitions
 
-1. **Check your resolution**: Our model is trained based on a 480p model using 480×832 resolution. During testing, image processing follows the width-limited principle. If your image resolution is too large (e.g., 2150×1204), it will be resized to 1472×832. This gap from the training resolution can lead to missing motion. Therefore, please adjust `--max_width` to an appropriate value. You can check the terminal log to verify: "Video dimensions: 832x1472". Additionally, excessively large sizes will also slow down inference. For more details, please refer to Issue #6.
+1. **Check your resolution**: Our model is trained on a 480p base using 480×832 resolution. During testing, image processing follows the width-limited principle. If your image resolution is too large (e.g., 2150×1204), it will be resized to 1472×832. This gap from the training resolution can lead to missing motion. Therefore, please adjust `--max_width` to an appropriate value. You can check the terminal log to verify: "Video dimensions: 832x1472". Additionally, excessively large sizes will slow down inference. For more details, please refer to Issue #6.
 
-2. **Text Prompt**: Providing an appropriate prompt is crucial for motion generation, especially for scene transitions. For more details, please refer to Issue #6. Additionally, regarding prompt language style, the training dataset's prompts tend to follow a more AI-like (GPT-style) format (人机 in Chinese), which actually simplifies prompt creation—simply providing a longer LLM-generated string can yield good results. This may be a productivity advantage worth leveraging HAHAHA.
+
+2. **Text CFG**: This is very important for text following (Wan I2V has this issue as well). If you notice ghosting artifacts or poor text following, increase the CFG value. For example: `--cfg_scale_text=7`. We typically find that if the test data style differs significantly from the training data, it's necessary to increase the CFG.
+
+3. **Text Prompt**: Providing an appropriate prompt is crucial for motion generation, especially for scene transitions. For more details, please refer to Issue #6. Additionally, regarding prompt language style, the training dataset's prompts tend to follow a more AI-like (GPT-style) format (人机 in Chinese), which actually simplifies prompt creation—simply providing a longer LLM-generated string can yield good results. This may be a productivity advantage worth leveraging HAHAHA.
+
+
 
 
 ## Q4: Did you consider building upon the Self-Forcing series of works?
@@ -56,6 +61,7 @@ Initially, we did want to build upon Self-Forcing, but several critical issues l
 - **`--num_motion_frames`**: Controls the number of cross-clip reference frames. In SVI-Film, this is used to ensure coherence across scene transitions. Please use our default value because it is aligned with the training.
 - **`--num_clips`**: Specifies how many video clips to generate. Each clip represents 81 frames.
 - **`--max_width`**: Controls the maximum width of test images during processing (maintaining the aspect ratio). Please adjust according to Q3 if needed.
+- **`--cfg_scale_text`**: Controls the text CFG. Please adjust according to Q3 if needed.
 - **`--ref_pad_num`**: Controls the padding method for reference images:
 
   - **`-1`**: Pads with a random frame. Used for single-scene video generation (e.g., SVI-Shot/Dance/Talk). This simplifies the task into a restoration problem based on unpaired data with the reference image, thereby eliminating any drift or forgetting issues.
