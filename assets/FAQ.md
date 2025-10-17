@@ -4,7 +4,7 @@
 
 Yes! This is our top priority on the TODO list. We are actively working on upgrading SVI to support Wan 2.2 and higher resolutions including 720p.
 
-**PS:** We are calling for TODO suggestions! We want to meet more real user needs: if you have any ideas, don't hesitate to share them in our Issues.
+***PS: We’re collecting TODO suggestions! We want to better meet real user needs—if you have ideas, please share them in our Issues. Also, if you have great reference images and text prompts but lack the resources to run inference, leave them in an Issue and we’ll run the inference for you!***
 
 ## Q2: Have you compared SVI-Talk with InfiniteTalk?
 
@@ -22,24 +22,40 @@ In our internal comparisons with InfiniteTalk on very small-scale samples:
 
 ## Q3: SVI-Film sometimes generates sub-optimal videos. Why?
 
-This issue has two main causes:
+### Potential Issue 1: Slight color shift. This issue has two main causes:
 
 1. **VAE encoding-decoding errors**: The VAE itself accumulates errors through repeated encoding-decoding, especially in static environments. If you repeatedly encode-decode the same image, you'll notice progressive quality degradation. Since our method operates in latent space, these errors can partially escape SVI's constraints.
 2. **Limited training data scope**: Our SVI uses LoRA trained on small-scale datasets, so its style and error patterns are constrained by the training data types. When test images or text prompts differ significantly from the training distribution, sub-optimal generation can occur.
 
-**Best solution**: Fine-tune with a small amount of video clips that match your target style/domain. This is the most effective way to adapt SVI to your specific use case. Moreover, LoRA not only learns error-elimination capabilities but also indirectly learns the generation style of the videos. So, you can better control the long-range style consistency by LoRA fintuning (like Tom & Jerry), which only needs several-hours tuning.
+
+**Best solution**: Fine-tune with a small amount of video clips that match your target style/domain. This is the most effective way to adapt SVI to your specific use case. Moreover, LoRA not only learns error-elimination capabilities but also indirectly learns the generation style of the videos. Therefore, you can better control the long-range style consistency through LoRA fine-tuning (e.g., Tom & Jerry), which only requires several hours of tuning.
+
+
+### Potential Issue 2: Limited motion and scene transition 
+
+1. **Check your resolution**: Our model is trained based on a 480p model using 480×832 resolution. During testing, image processing follows the width-limited principle. If your image resolution is too large (e.g., 2150×1204), it will be resized to 1472×832. This gap from the training resolution can lead to missing motion. Therefore, please adjust `--max_width` to an appropriate value. You can check the terminal log to verify: "Video dimensions: 832x1472". Additionally, excessively large sizes will also slow down inference. For more details, please refer to Issue #6.
+
+2. **Text Prompt**: Providing an appropriate prompt is crucial for motion generation, especially for scene transitions. For more details, please refer to Issue #6.
+
 
 ## Q4: Did you consider building upon the Self-Forcing series of works?
 
-Initially, we did want to build upon Self-Forcing, but two critical issues led us to abandon this approach:
+Initially, we did want to build upon Self-Forcing, but several critical issues led us to abandon this approach:
 
 1. **T2V-only limitation**: Self-Forcing only supports text-to-video (T2V), whereas most application scenarios—such as talking faces—require image-to-video (I2V) capabilities. While I2V can easily accommodate T2V (simply by providing a T2I-generated first frame), the reverse is much more difficult.
+
 2. **Model scale constraints**: Self-Forcing is based on a 1.3B parameter model, and we found that the visual quality could hardly reach the cinematic level we aimed for (e.g., our Iron Man demo).
+
+3. **Different objectives**: The Self-Forcing series is better suited for scenarios prioritizing real-time interaction (e.g., gaming), where visual quality does not need to reach cinematic standards. In contrast, our work focuses on story content creation, requiring higher standards for both content and visual quality. Therefore, the current version can generate a 2-minute 480p story using H100 GPUs overnight, which aligns well with our objectives.
+
+4. **Causality considerations**: Self-Forcing achieves frame-by-frame causality, whereas SVI operates at a clip-by-clip or chunk-by-clip level of causality. This level of autoregression aligns with the characteristics of large language models.
+
 
 ## Q5: What do the parameters in test bash scripts mean?
 
-- **`--num_motion_frames`**: Controls the number of cross-clip reference frames. In SVI-Film, this is used to ensure coherence across scene transitions.
+- **`--num_motion_frames`**: Controls the number of cross-clip reference frames. In SVI-Film, this is used to ensure coherence across scene transitions. Please use our default value because it is aligned with the training.
 - **`--num_clips`**: Specifies how many video clips to generate. Each clip represents 81 frames.
+- **`--max_width`**: Controls the maximum width of test images during processing (maintaining the aspect ratio). Please adjust according to Q3 if needed.
 - **`--ref_pad_num`**: Controls the padding method for reference images:
 
   - **`-1`**: Pads with a random frame. Used for single-scene video generation (e.g., SVI-Shot/Dance/Talk). This simplifies the task into a restoration problem based on unpaired data with the reference image, thereby eliminating any drift or forgetting issues.
