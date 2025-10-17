@@ -35,7 +35,7 @@ In our internal comparisons with InfiniteTalk on very small-scale samples:
 
 1. **Check your resolution**: Our model is trained based on a 480p model using 480×832 resolution. During testing, image processing follows the width-limited principle. If your image resolution is too large (e.g., 2150×1204), it will be resized to 1472×832. This gap from the training resolution can lead to missing motion. Therefore, please adjust `--max_width` to an appropriate value. You can check the terminal log to verify: "Video dimensions: 832x1472". Additionally, excessively large sizes will also slow down inference. For more details, please refer to Issue #6.
 
-2. **Text Prompt**: Providing an appropriate prompt is crucial for motion generation, especially for scene transitions. For more details, please refer to Issue #6.
+2. **Text Prompt**: Providing an appropriate prompt is crucial for motion generation, especially for scene transitions. For more details, please refer to Issue #6. Additionally, regarding prompt language style, the training dataset's prompts tend to follow a more AI-like (GPT-style) format (人机 in Chinese), which actually simplifies prompt creation—simply providing a longer LLM-generated string can yield good results. This may be a productivity advantage worth leveraging HAHAHA.
 
 
 ## Q4: Did you consider building upon the Self-Forcing series of works?
