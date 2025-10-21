@@ -24,10 +24,10 @@ python train_svi_dance.py \
 --buffer_replacement_strategy l2_batch \
 --y_error_sample_from_all_grids \
 --num_grids 50 \
---noise_prob 0.9 \
+--noise_prob 0.01 \
 --y_prob 0.9 \
 --latent_prob 0.9 \
---clean_prob 0.5 \
+--clean_prob 0.2 \
 --ref_pad_num -1 \
 --clean_buffer_update_prob 0.1 \
 --exp_prefix 'svi-dance' 

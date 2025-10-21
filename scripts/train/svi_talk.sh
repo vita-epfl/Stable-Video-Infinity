@@ -16,7 +16,7 @@ python train_svi_talk.py \
 --use_error_recycling \
 --error_buffer_k 500 \
 --y_error_num 3 \
---num_motion_frames 5 \
+--num_motion_frames 1 \
 --buffer_warmup_iter 50 \
 --buffer_replacement_strategy l2_batch \
 --y_error_sample_from_all_grids \
@@ -25,7 +25,7 @@ python train_svi_talk.py \
 --noise_prob 0.01 \
 --y_prob 0.9 \
 --latent_prob 0.9 \
---clean_prob 0.5 \
+--clean_prob 0.2 \
 --clean_buffer_update_prob 0.1 \
 --exp_prefix train-svi-talk
 

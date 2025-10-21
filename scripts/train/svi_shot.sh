@@ -25,6 +25,6 @@ python train_svi.py \
 --noise_prob 0.01 \
 --y_prob 0.9 \
 --latent_prob 0.9 \
---clean_prob 0.5 \
+--clean_prob 0.2 \
 --clean_buffer_update_prob 0.1 \
 --exp_prefix train-svi-shot
