@@ -4,15 +4,15 @@ During SVI training, we employ `--clean_prob=0.5` to enable error-free training.
 
 ### 10-Prompt I2V (50-sec)
 
-| svi-film-opt-10212025 | svi-film | svi-film-transition |          
-| ---------------------- | -------- | ------------------- |
-| 63.09 | 62.25 | 62.40 |
+| svi-film-opt-10212025 | svi-film | svi-film-transition |     Wan 2.1 (baseline) |       
+| ---------------------- | -------- | ------------------- |  ------------------- |     
+| 63.09 | 62.25 | 62.40 |52.83|
 
 ### 50-Prompt I2V (250-sec)
 
-| svi-film-opt-10212025 | svi-film | svi-film-transition |          
-| ---------------------- | -------- | ------------------- |
-| 61.92 | 59.43 | 57.91 |
+| svi-film-opt-10212025 | svi-film | svi-film-transition | Wan 2.1 (baseline) |            
+| ---------------------- | -------- | ------------------- |------------------- |
+| 61.92 | 59.43 | 57.91 |42.31|
 
 ### Optimization Implementation in train_x.py
 
