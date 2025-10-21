@@ -48,13 +48,12 @@ PS: Wan 2.2-5B-SVI is coming.
 
 ## ❓ Frequently Asked Questions
 
-### Bidirctioonal or Causal (Self-Forcing)?
+### Bidirectional or Causal (Self-Forcing)?
 
 
-*Self-Forcing achieves **frame-by-frame causality**, whereas SVI, a hybrid version, operates a **clip-by-clip causality**, with **bidirectional attention within each clip**.*
+*Self-Forcing achieves **frame-by-frame causality**, whereas SVI, a hybrid version, operates with **clip-by-clip causality** and **bidirectional attention within each clip**.*
 
-Targeting film and creative content production, our SVI design mirrors a director's workflow: (1) Directors repeatedly review clips in both forward and reverse directions to ensure quality, often calling "CUT" and "AGAIN" multiple times during the creative process. SVI maintains bidirectionality within each clip to emulate this process. (2) After that, directors seamlessly connect different clips along the temporal axis with causality consistency (and some scene-transition animation), which aligns with SVI's clip-by-clip causality. The Self-Forcing series is better suited for scenarios prioritizing real-time interaction (e.g., gaming). In contrast, SVI focuses on story content creation, requiring higher standards for both content and visual quality. Intuitively, SVI's paradigm has unique advantages in end-to-end high-quality video content creation.
-
+Targeting film and creative content production, our SVI design mirrors a director's workflow: (1) Directors repeatedly review clips in both forward and reverse directions to ensure quality, often calling "CUT" and "AGAIN" multiple times during the creative process. SVI maintains bidirectionality within each clip to emulate this process. (2) After that, directors seamlessly connect different clips along the temporal axis with causality (and some scene-transition animation), which aligns with SVI's clip-by-clip causality. The Self-Forcing series is better suited for scenarios prioritizing real-time interaction (e.g., gaming). In contrast, SVI focuses on story content creation, requiring higher standards for both content and visual quality. Intuitively, SVI's paradigm has unique advantages in end-to-end high-quality video content creation.
 
 <div align="center">
     <img src="docs/causal.png" alt="Pardigm comparisoon">
