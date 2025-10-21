@@ -16,8 +16,6 @@
 <a href='https://huggingface.co/datasets/vita-video-gen/svi-benchmark'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-orange'></a>
 </div>
 
-**📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
-
 <div align="center">
   <a href="https://youtu.be/p71Wp1FuqTw">
     <img src="assets/youtube.png" alt="Watch the video">
@@ -33,17 +31,37 @@
 - **Versatile**: Supports diverse in-the-wild generation tasks: multi-scene short films, single‑scene animations, skeleton-/audio-conditioned generation, cartoons, and more.
 - **Efficient**: Only LoRA adapters are tuned, requiring very little training data: anyone can make their own SVI easily.
 
+If you think this project is useful, we would really appreciate your star ⭐, which encourages us to better develop the open-source community! This repository will be continuously maintained. Thank you!
+
 </div>
 
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
 
 ## 🔥 News
 
+
+[10-21-2025] The error-banking strategy is optimized, further imporving the stability. See details in [DevLog](docs/DevLog.md)!  
 [10-13-2025] SVI is now fully open-sourced and online!
 
-PS: If you think this project is useful, we would really appreciate your star ⭐, which encourages us to better develop the open-source community! This repository will be continuously maintained. Thank you!
 
-### Please refer to Frequently Asked Questions: [FAQ](assets/FAQ.md)
+PS: Wan 2.2-5B-SVI is coming.  
+
+## ❓ Frequently Asked Questions
+
+### Bidirctioonal or Causal (Self-Forcing)?
+
+
+*Self-Forcing achieves **frame-by-frame causality**, whereas SVI, a hybrid version, operates a **clip-by-clip causality**, with **bidirectional attention within each clip**.*
+
+Targeting film and creative content production, our SVI design mirrors a director's workflow: (1) Directors repeatedly review clips in both forward and reverse directions to ensure quality, often calling "CUT" and "AGAIN" multiple times during the creative process. SVI maintains bidirectionality within each clip to emulate this process. (2) After that, directors seamlessly connect different clips along the temporal axis with causality consistency (and some scene-transition animation), which aligns with SVI's clip-by-clip causality. The Self-Forcing series is better suited for scenarios prioritizing real-time interaction (e.g., gaming). In contrast, SVI focuses on story content creation, requiring higher standards for both content and visual quality. Intuitively, SVI's paradigm has unique advantages in end-to-end high-quality video content creation.
+
+
+<div align="center">
+    <img src="docs/causal.png" alt="Pardigm comparisoon">
+</div>
+
+
+### Please Refer to [FAQ](docs/FAQ.md) for More Questions.
 
 ## 🔧 Environment Setup
 
@@ -77,6 +95,7 @@ huggingface-cli download Wan-AI/Wan2.1-I2V-14B-480P --local-dir ./weights/Wan2.1
 | ------------------------------- | ----------------------- | -------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | **ALL**                   | Infinite possibility    | Image + X                  | X video          | [🤗 Folder](https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0)                                                  | Family bucket! I want to play with all!                                                                    |
 | **SVI-Shot**              | Single-scene generation | Image + Text prompt        | Long video       | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-shot.safetensors?download=true)             | Generate consistent long video with 1 text prompt. (This will never drift or forget in our 20 min test)                                 |
+| **SVI-Film-Opt-10212025**  (Latest)            | Multi-scene generation  | Image + Text prompt stream | Film-style video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-film-opt-10212025.safetensors)             | Generate creative long video with 1 text prompt stream (5 second per text).                                |
 | **SVI-Film**              | Multi-scene generation  | Image + Text prompt stream | Film-style video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-film.safetensors?download=true)             | Generate creative long video with 1 text prompt stream (5 second per text).                                |
 | **SVI-Film (Transition)** | Multi-scene generation  | Image + Text prompt stream | Film-style video | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-film-transitions.safetensors?download=true) | Generate creative long video with 1 text prompt stream. (More scene transitions due to the training data)  |
 | **SVI-Tom&Jerry**         | Cartoon animation       | Image                      | Cartoon video    | [🤗 Model](https://huggingface.co/vita-video-gen/svi-model/resolve/main/version-1.0/svi-tom.safetensors?download=true)              | Generate creative long cartoon videos with 1 text prompt stream (This will never drift or forget in our 20 min test) |
@@ -160,7 +179,9 @@ weights/
 │   ├── multitalk.safetensors
 │   └── README.md
 └── UniAnimate-DiT/ (for SVI-Dance)
-    ├── unet/
+    ├── dw-ll_ucoco_384.onnx
+    ├── UniAnimate-Wan2.1-14B-Lora-12000.ckpt
+    ├── yolox_l.onnx
     └── README.md
 ```
 
@@ -280,7 +301,7 @@ huggingface-cli download --repo-type dataset vita-video-gen/svi-benchmark --loca
 ## 📋 TODO List
 
 - [X] Release everything about SVI
-- [ ] Wan 2.2 based SVI
+- [ ] Wan 2.2 5B based SVI
 - [ ] Streaming generation model
 
 - [Call for TODO]  Write down your idea in the Issue
@@ -299,10 +320,10 @@ If you find our work helpful for your research, please consider citing our paper
 
 ```bibtex
 @article{li2025stable,
-      title={Stable Video Infinity: Infinite-Length Video Generation with Error Recycling}, 
-      author={Wuyang Li and Wentao Pan and Po-Chien Luan and Yang Gao and Alexandre Alahi},
-      journal={arXiv preprint arXiv: arXiv:2510.09212},
-      year={2025},
+  title={Stable Video Infinity: Infinite-Length Video Generation with Error Recycling},
+  author={Li, Wuyang and Pan, Wentao and Luan, Po-Chien and Gao, Yang and Alahi, Alexandre},
+  journal={arXiv preprint arXiv:2510.09212},
+  year={2025}
 }
 ```
 

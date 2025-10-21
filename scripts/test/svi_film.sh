@@ -8,4 +8,4 @@ python test_svi.py \
 --num_motion_frames 5 \
 --ref_image_path data/toy_test/film/frame.jpg \
 --prompt_path data/toy_test/film/prompt.txt \
---extra_module_root weights/Stable-Video-Infinity/version-1.0/svi-film.safetensors 
+--extra_module_root weights/Stable-Video-Infinity/version-1.0/svi-film-opt-10212025.safetensors

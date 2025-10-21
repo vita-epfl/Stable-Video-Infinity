@@ -13,7 +13,7 @@ To be honest, SVI-Talk was developed under a tight schedule. We only fine-tuned 
 In our internal comparisons with InfiniteTalk on very small-scale samples:
 
 - **Lip-sync metrics**: Our metrics are very close to InfiniteTalk, though slightly lower (likely because we didn't have time to tune the audio cfg properly)
-- **SVI advantages**: Significantly better text detail consistency; Superior visual quality (benefiting from our image restoration characteristics). However, these advantages don't show up in typical talking face metrics. (See below figure)
+- **SVI advantages**: Better text detail consistency and visual quality (benefiting from our image restoration characteristics). However, these advantages don't show up in typical talking face metrics. (See below figure)
 - **Long-form generation**: We tested 10-minute talking videos with absolutely no drifting issues
 
 <p align="center">
@@ -38,22 +38,24 @@ In our internal comparisons with InfiniteTalk on very small-scale samples:
 
 2. **Text CFG**: This is very important for text following (Wan I2V has this issue as well). If you notice ghosting artifacts or poor text following, increase the CFG value. For example: `--cfg_scale_text=7`. We typically find that if the test data style differs significantly from the training data, it's necessary to increase the CFG.
 
-3. **Text Prompt**: Providing an appropriate prompt is crucial for motion generation, especially for scene transitions. For more details, please refer to Issue #6. Additionally, regarding prompt language style, the training dataset's prompts tend to follow a more AI-like (GPT-style) format (人机 in Chinese), which actually simplifies prompt creation—simply providing a longer LLM-generated string can yield good results. This may be a productivity advantage worth leveraging HAHAHA.
-
-
+3. **Text Prompt**: Providing an appropriate prompt is crucial for motion generation, especially for scene transitions. For more details, please refer to Issue #6. Additionally, regarding prompt language style, the training dataset's prompts tend to follow a more AI-like (GPT-style) format, which actually simplifies prompt creation—simply providing a longer LLM-generated string can yield good results. This may be a productivity advantage worth leveraging!
 
 
 ## Q4: Did you consider building upon the Self-Forcing series of works?
 
 Initially, we did want to build upon Self-Forcing, but several critical issues led us to abandon this approach:
 
-1. **T2V-only limitation**: Self-Forcing only supports text-to-video (T2V), whereas most application scenarios—such as talking faces—require image-to-video (I2V) capabilities. While I2V can easily accommodate T2V (simply by providing a T2I-generated first frame), the reverse is much more difficult.
+1. **Different objectives**: The Self-Forcing series is better suited for scenarios prioritizing real-time interaction (e.g., gaming), where visual quality does not need to reach cinematic standards. In contrast, our work focuses on story content creation, requiring higher standards for both content and visual quality. 
 
-2. **Model scale constraints**: Self-Forcing is based on a 1.3B parameter model, and we found that the visual quality could hardly reach the cinematic level we aimed for (e.g., our Iron Man demo).
 
-3. **Different objectives**: The Self-Forcing series is better suited for scenarios prioritizing real-time interaction (e.g., gaming), where visual quality does not need to reach cinematic standards. In contrast, our work focuses on story content creation, requiring higher standards for both content and visual quality. Therefore, the current version can generate a 2-minute 480p story using H100 GPUs overnight, which aligns well with our objectives.
+2. **Causal/Bidirectional considerations**: Self-Forcing achieves frame-by-frame causality, whereas SVI operates at a clip-by-clip or chunk-by-chunk level of causality, with bidirectional processing within each clip. Since SVI targets film and video production, our design mirrors a director's workflow: directors repeatedly review clips in both forward and reverse to ensure quality. SVI maintains bidirectionality within each clip to emulate this process. Directors then seamlessly connect different clips along the temporal axis with causality consistency, which aligns with SVI's chunk-by-chunk causality. Intuitively, SVI's paradigm has unique advantages in end-to-end high-quality video content creation.
 
-4. **Causality considerations**: Self-Forcing achieves frame-by-frame causality, whereas SVI operates at a clip-by-clip or chunk-by-clip level of causality. This level of autoregression aligns with the characteristics of large language models.
+3. **T2V-only limitation**: Self-Forcing only supports text-to-video (T2V), whereas most application scenarios—such as talking faces—require image-to-video (I2V) capabilities. While I2V can easily accommodate T2V (simply by providing a T2I-generated first frame), the reverse is much more difficult.
+
+4. **Model scale constraints**: Self-Forcing is based on a 1.3B parameter model, and we found that the visual quality could hardly reach the cinematic level we aimed for (e.g., our Iron Man demo).
+
+
+
 
 
 ## Q5: What do the parameters in test bash scripts mean?

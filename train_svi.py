@@ -1170,13 +1170,17 @@ class LightningModelForTrain_onestage(pl.LightningModule):
                         p = random.random()
                         if p < self.clean_buffer_update_prob:
                             self._update_error_buffers_distributed(gathered_noise_errors, gathered_y_errors, gathered_timesteps)
-
                     else:
                         self._update_error_buffers_distributed(gathered_noise_errors, gathered_y_errors, gathered_timesteps)
-                    
                 else:
                     # After warmup: only use local GPU errors
-                    self._update_error_buffers_local(noise_error, y_error, timestep)
+                    # self._update_error_buffers_local(noise_error, y_error, timestep)
+                    if use_clean_input:
+                        p = random.random()
+                        if p < self.clean_buffer_update_prob:
+                            self._update_error_buffers_local(noise_error, y_error, timestep)
+                    else:
+                        self._update_error_buffers_local(noise_error, y_error, timestep)
 
         self.log("train_loss", loss, prog_bar=True)
         if self.use_error_recycling:
