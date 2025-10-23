@@ -14,7 +14,11 @@
 <a href='https://arxiv.org/abs/2510.09212'><img src='https://img.shields.io/badge/Technique-Report-red'></a>
 <a href='https://huggingface.co/vita-video-gen/svi-model/tree/main/version-1.0'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
 <a href='https://huggingface.co/datasets/vita-video-gen/svi-benchmark'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-orange'></a>
+
+Technical introduction (unofficial): [AI Papers Slop (English)](https://www.youtube.com/watch?v=vKPCqPsCfZg); [WechatApp (Chinese)](https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ==&mid=2247641601&idx=1&sn=e86ae40b54fda22eda2ebd818b38de73&chksm=978a0c69a14a79192b1ca81f257f093362add316acdcdff69c67ab5d186f8af7f8e84931632a&mpshare=1&srcid=1016e1aTWfR71TRJJHDFgMHf&sharer_shareinfo=273ee623f20eba9542ff4b8c3a0c35d1&sharer_shareinfo_first=559e5442227d44f61573005b4e12d83c&from=timeline&scene=2&subscene=2&clicktime=1761249340&enterid=1761249340&sessionid=0&ascene=45&fasttmpl_type=0&fasttmpl_fullversion=7965100-zh_CN-zip&fasttmpl_flag=0&realreporttime=1761249340647#rd)
 </div>
+
+
 
 <div align="center">
   <a href="https://youtu.be/p71Wp1FuqTw">
@@ -111,13 +115,13 @@ huggingface-cli login
 huggingface-cli download vita-video-gen/svi-model --local-dir ./weights/Stable-Video-Infinity --include "version-1.0/*"
 
 # Option 2: Download individual models
-huggingface-cli download vita-video-gen/svi-model version-1.0/svi-shot.safetensors --local-dir ./weights/Stable-Video-Infinity
-huggingface-cli download vita-video-gen/svi-model version-1.0/svi-film.safetensors --local-dir ./weights/Stable-Video-Infinity
-huggingface-cli download vita-video-gen/svi-model version-1.0/svi-film-transitions.safetensors --local-dir ./weights/Stable-Video-Infinity
-huggingface-cli download vita-video-gen/svi-model version-1.0/svi-film-transitions.safetensors --local-dir ./weights/Stable-Video-Infinity
-huggingface-cli download vita-video-gen/svi-model version-1.0/svi-tom.safetensors --local-dir ./weights/Stable-Video-Infinity
-huggingface-cli download vita-video-gen/svi-model version-1.0/svi-talk.safetensors --local-dir ./weights/Stable-Video-Infinity
-huggingface-cli download vita-video-gen/svi-model version-1.0/svi-dance.safetensors --local-dir ./weights/Stable-Video-Infinity
+# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-shot.safetensors --local-dir ./weights/Stable-Video-Infinity
+# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-film-opt-10212025.safetensors  --local-dir ./weights/Stable-Video-Infinity
+# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-film.safetensors --local-dir ./weights/Stable-Video-Infinity
+# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-film-transitions.safetensors --local-dir ./weights/Stable-Video-Infinity
+# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-tom.safetensors --local-dir ./weights/Stable-Video-Infinity
+# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-talk.safetensors --local-dir ./weights/Stable-Video-Infinity
+# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-dance.safetensors --local-dir ./weights/Stable-Video-Infinity
 ```
 
 ### Download Multitalk Cross-Attention for SVI-Talk Training/Test
