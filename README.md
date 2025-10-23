@@ -39,7 +39,7 @@ If you think this project is useful, we would really appreciate your star ⭐, w
 
 ## 🔥 News
 
-
+[10-23-2025] The preview of Wan 2.2-5B-SVI (small-gpu friendly) and some tips for custom SVI implementation: See [DevLog](docs/DevLog.md)!  
 [10-21-2025] The error-banking strategy is optimized, further imporving the stability. See details in [DevLog](docs/DevLog.md)!  
 [10-13-2025] SVI is now fully open-sourced and online!
 
@@ -300,8 +300,10 @@ huggingface-cli download --repo-type dataset vita-video-gen/svi-benchmark --loca
 ## 📋 TODO List
 
 - [X] Release everything about SVI
-- [ ] Wan 2.2 5B based SVI
-- [ ] Streaming generation model
+- [ ] SVI quantization for commercial GPUs [Issue #7]
+- [ ] Wan 2.2 5B based SVI [Issue #1 #7]
+- [ ] Wan 2.2 14B based SVI [Issue #1]
+- [ ] Streaming generation model 
 
 - [Call for TODO]  Write down your idea in the Issue
 
