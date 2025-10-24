@@ -43,7 +43,9 @@ If you think this project is useful, we would really appreciate your star ⭐, w
 
 ### Important Note for ComfyUI Users
 
-We just identified major issues in the third-party ComfyUI workflow implementation (the incompatibility between LoRA and quantized models, padding and motion frame), leading to the total failure of SVI ([Issue #7](https://github.com/vita-epfl/Stable-Video-Infinity/issues/7) and [Issue #10](https://github.com/vita-epfl/Stable-Video-Infinity/issues/10)). We've contacted the ComfyUI team. We are working on fixing them — please stay tuned. Thank you for your understanding! Moer details are [here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519). 
+Big thanks to KJ! ComfyUI-SVI is nearly fixed and will be available in the next few days: [Preview](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3443540666)
+
+<!-- We just identified major issues in the third-party ComfyUI workflow implementation (the incompatibility between LoRA and quantized models, padding and motion frame), leading to the total failure of SVI ([Issue #7](https://github.com/vita-epfl/Stable-Video-Infinity/issues/7) and [Issue #10](https://github.com/vita-epfl/Stable-Video-Infinity/issues/10)). We've contacted the ComfyUI team. We are working on fixing them — please stay tuned. Thank you for your understanding! Moer details are [here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519).  -->
 
 **If possible, please use our inference script in this repo at first.** We will update the fixed ComfyUI as soon as possible. Thank you so much.
 
