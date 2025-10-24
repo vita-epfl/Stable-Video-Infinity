@@ -41,6 +41,13 @@ If you think this project is useful, we would really appreciate your star ⭐, w
 
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
 
+### Important Note for ComfyUI Users
+
+We just identified major issues in the third-party ComfyUI workflow implementation (the incompatibility between LoRA and quantized models, padding and motion frame), leading to the total failure of SVI ([Issue #7](https://github.com/vita-epfl/Stable-Video-Infinity/issues/7) and [Issue #10](https://github.com/vita-epfl/Stable-Video-Infinity/issues/10)). We've contacted the ComfyUI team. We are working on fixing them — please stay tuned. Thank you for your understanding! Moer details are [here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519). 
+
+**If possible, please use our inference script in this repo at first.** We will update the fixed ComfyUI as soon as possible. Thank you so much.
+
+
 ## 🔥 News
 
 [10-23-2025] The preview of Wan 2.2-5B-SVI (small-gpu friendly) and some tips for custom SVI implementation: See [DevLog](docs/DevLog.md)!  
@@ -51,10 +58,6 @@ If you think this project is useful, we would really appreciate your star ⭐, w
 PS: Wan 2.2-5B-SVI is coming.  
 
 ## ❓ Frequently Asked Questions
-
-### [10-24-2025] Important Note: ComfyUI
-
-**We recently identified major issues in the third-party ComfyUI workflow implementation (padding, motion Frame, and incompatibility between LoRA and quantized models) that are causing suboptimal performance. We've contacted the ComfyUI team and are working on fixing them — please stay tuned. Thank you for your understanding! [Details](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519) If possible, please use our inference script currently. Thank you.**
 
 ### Bidirectional or Causal (Self-Forcing)?
 
