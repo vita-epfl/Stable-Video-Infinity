@@ -52,6 +52,10 @@ PS: Wan 2.2-5B-SVI is coming.
 
 ## ❓ Frequently Asked Questions
 
+### [10-24-2025] Important Note: ComfyUI
+
+**We recently identified major issues in the third-party ComfyUI workflow implementation (padding, motion Frame, and incompatibility between LoRA and quantized models) that are causing suboptimal performance. We've contacted the ComfyUI team and are working on fixing them — please stay tuned. Thank you for your understanding! [Details](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519) If possible, please use our inference script currently. Thank you.**
+
 ### Bidirectional or Causal (Self-Forcing)?
 
 
