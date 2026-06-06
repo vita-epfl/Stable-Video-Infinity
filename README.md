@@ -342,7 +342,7 @@ conda install -c conda-forge libiconv
 ### Download Wan 2.1 I2V 14B
 
 ```bash
-huggingface-cli download Wan-AI/Wan2.1-I2V-14B-480P --local-dir ./weights/Wan2.1-I2V-14B-480P
+hf download Wan-AI/Wan2.1-I2V-14B-480P --local-dir ./weights/Wan2.1-I2V-14B-480P
 ```
 
 ### Download SVI Family
@@ -368,7 +368,7 @@ For this model, you can try the sample in [100-prompt-sample](data/toy_test/svi_
 
 ```bash
 # This uses the SVI-Shot inference script and workflow, supporting both 5 and 1 motion frames
-huggingface-cli download vita-video-gen/svi-model version-2.0/SVI_Wan2.1-I2V-14B_lora_v2.0.safetensors --local-dir ./weights/Stable-Video-Infinity
+hf download vita-video-gen/svi-model version-2.0/SVI_Wan2.1-I2V-14B_lora_v2.0.safetensors --local-dir ./weights/Stable-Video-Infinity
 
 ```
 
@@ -376,30 +376,30 @@ huggingface-cli download vita-video-gen/svi-model version-2.0/SVI_Wan2.1-I2V-14B
 ### SVI-1.0
 ```bash
 # login with your fine-grained token
-huggingface-cli login
+hf login
 
 # Option 1: Download SVI Family bucket!
-huggingface-cli download vita-video-gen/svi-model --local-dir ./weights/Stable-Video-Infinity --include "version-1.0/*"
+hf download vita-video-gen/svi-model --local-dir ./weights/Stable-Video-Infinity --include "version-1.0/*"
 
 # Option 2: Download individual models
-# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-shot.safetensors --local-dir ./weights/Stable-Video-Infinity
-# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-film-opt-10212025.safetensors  --local-dir ./weights/Stable-Video-Infinity
-# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-film.safetensors --local-dir ./weights/Stable-Video-Infinity
-# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-film-transitions.safetensors --local-dir ./weights/Stable-Video-Infinity
-# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-tom.safetensors --local-dir ./weights/Stable-Video-Infinity
-# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-talk.safetensors --local-dir ./weights/Stable-Video-Infinity
-# huggingface-cli download vita-video-gen/svi-model version-1.0/svi-dance.safetensors --local-dir ./weights/Stable-Video-Infinity
+# hf download vita-video-gen/svi-model version-1.0/svi-shot.safetensors --local-dir ./weights/Stable-Video-Infinity
+# hf download vita-video-gen/svi-model version-1.0/svi-film-opt-10212025.safetensors  --local-dir ./weights/Stable-Video-Infinity
+# hf download vita-video-gen/svi-model version-1.0/svi-film.safetensors --local-dir ./weights/Stable-Video-Infinity
+# hf download vita-video-gen/svi-model version-1.0/svi-film-transitions.safetensors --local-dir ./weights/Stable-Video-Infinity
+# hf download vita-video-gen/svi-model version-1.0/svi-tom.safetensors --local-dir ./weights/Stable-Video-Infinity
+# hf download vita-video-gen/svi-model version-1.0/svi-talk.safetensors --local-dir ./weights/Stable-Video-Infinity
+# hf download vita-video-gen/svi-model version-1.0/svi-dance.safetensors --local-dir ./weights/Stable-Video-Infinity
 ```
 
 ### Download Multitalk Cross-Attention for SVI-Talk Training/Test
 
 ```bash
 # Download audio encoder
-huggingface-cli download TencentGameMate/chinese-wav2vec2-base --local-dir ./weights/chinese-wav2vec2-base 
-huggingface-cli download TencentGameMate/chinese-wav2vec2-base model.safetensors --revision refs/pr/1 --local-dir ./weights/chinese-wav2vec2-base
+hf download TencentGameMate/chinese-wav2vec2-base --local-dir ./weights/chinese-wav2vec2-base 
+hf download TencentGameMate/chinese-wav2vec2-base model.safetensors --revision refs/pr/1 --local-dir ./weights/chinese-wav2vec2-base
 
 # Download multitalk weight
-huggingface-cli download MeiGen-AI/MeiGen-MultiTalk --local-dir ./weights/MeiGen-MultiTalk
+hf download MeiGen-AI/MeiGen-MultiTalk --local-dir ./weights/MeiGen-MultiTalk
 
 # Link Multitalk
 ln -s $PWD/weights/MeiGen-MultiTalk/multitalk.safetensors weights/Wan2.1-I2V-14B-480P/
@@ -408,7 +408,7 @@ ln -s $PWD/weights/MeiGen-MultiTalk/multitalk.safetensors weights/Wan2.1-I2V-14B
 ### Download UniAnimate-DiT LoRA for SVI-Dance Training
 
 ```bash
-huggingface-cli download ZheWang123/UniAnimate-DiT --local-dir ./weights/UniAnimate-DiT
+hf download ZheWang123/UniAnimate-DiT --local-dir ./weights/UniAnimate-DiT
 ```
 
 ### Check Model
@@ -570,7 +570,7 @@ The following is the training data we used for SVI family.
 | **Human Dancing**                        | Train | [🤗 Dataset](https://www.kaggle.com/datasets/yasaminjafarian/tiktokdataset)                             | TikTok                                                  |
 
 ```bash
-huggingface-cli download --repo-type dataset vita-video-gen/svi-benchmark --local-dir ./data/svi-benchmark
+hf download --repo-type dataset vita-video-gen/svi-benchmark --local-dir ./data/svi-benchmark
 ```
 
 ## 📋 TODO List

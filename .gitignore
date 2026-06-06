@@ -5,3 +5,18 @@ videos
 .gradio
 weights/*
 __pycache__
+
+# Pinokio launcher dynamic files
+app/
+env/
+workflows/
+node_modules/
+.DS_Store
+cache/
+
+# Model files (downloaded separately)
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.bin
