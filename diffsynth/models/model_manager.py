@@ -141,7 +141,7 @@ def load_model_from_huggingface_folder(file_path, model_names, model_classes, to
             model = model.half()
         try:
             model = model.to(device=device)
-        except:
+        except Exception:
             pass
         loaded_model_names.append(model_name)
         loaded_models.append(model)

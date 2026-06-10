@@ -78,7 +78,7 @@ def smooth_video(
     # output
     try:
         fps = int(fps)
-    except:
+    except Exception:
         fps = get_video_fps(video_style) if video_style is not None else 30
     print("Fps:", fps)
     print("Saving video...")
@@ -243,7 +243,7 @@ def interpolate_video(
         InterpolationModeRunner().run(frames_guide, frames_style, index_style, batch_size=batch_size, ebsynth_config=ebsynth_config, save_path=output_frames_path)
     try:
         fps = int(fps)
-    except:
+    except Exception:
         fps = 30
     print("Fps:", fps)
     print("Saving video...")
