@@ -430,7 +430,8 @@ class TextVideoDataset_onestage(torch.utils.data.Dataset):
         self.frame_process = v2.Compose([
             # v2.CenterCrop(size=(height, width)),
             v2.Resize(size=(height, width), antialias=True),
-            v2.ToTensor(),
+            v2.ToImage(),
+            v2.ToDtype(torch.float32, scale=True),
             v2.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
         ])
 
