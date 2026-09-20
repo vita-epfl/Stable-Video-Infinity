@@ -1,0 +1,5 @@
+{
+  "title": "Stable Video Infinity",
+  "description": "Generate infinite-length videos with high temporal consistency using ComfyUI, Wan 2.1, and SVI LoRA. Features include multi-scene short films, single-scene animations, and controllable streaming storylines.",
+  "icon": "icon.png"
+}
