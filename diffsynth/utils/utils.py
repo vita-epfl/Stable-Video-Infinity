@@ -391,13 +391,13 @@ def apply_lora(model, device_to, transformer_load_device, params_to_keep=None, d
                     key = "{}.{}".format(name_no_prefix, param)
                     try:
                         set_module_tensor_to_device(model.model.diffusion_model, key, device=transformer_load_device, dtype=dtype_to_use, value=state_dict[key])
-                    except:
+                    except Exception:
                         continue
                 model.patch_weight_to_device("{}.{}".format(name, param), device_to=device_to)
                 if low_mem_load:
                     try:
                         set_module_tensor_to_device(model.model.diffusion_model, key, device=transformer_load_device, dtype=dtype_to_use, value=model.model.diffusion_model.state_dict()[key])
-                    except:
+                    except Exception:
                         continue
             m.comfy_patched_weights = True
       
@@ -410,7 +410,7 @@ def apply_lora(model, device_to, transformer_load_device, params_to_keep=None, d
                         dtype_to_use = torch.float32
                     try:
                         set_module_tensor_to_device(model.model.diffusion_model, name, device=transformer_load_device, dtype=dtype_to_use, value=state_dict[name])
-                    except:
+                    except Exception:
                         continue
         return model
 
@@ -447,13 +447,13 @@ def apply_lora(model, device_to, transformer_load_device, params_to_keep=None, d
                     key = "{}.{}".format(name_no_prefix, param)
                     try:
                         set_module_tensor_to_device(model.model.diffusion_model, key, device=transformer_load_device, dtype=dtype_to_use, value=state_dict[key])
-                    except:
+                    except Exception:
                         continue
                 model.patch_weight_to_device("{}.{}".format(name, param), device_to=device_to)
                 if low_mem_load:
                     try:
                         set_module_tensor_to_device(model.model.diffusion_model, key, device=transformer_load_device, dtype=dtype_to_use, value=model.model.diffusion_model.state_dict()[key])
-                    except:
+                    except Exception:
                         continue
             m.comfy_patched_weights = True
       
@@ -466,6 +466,6 @@ def apply_lora(model, device_to, transformer_load_device, params_to_keep=None, d
                         dtype_to_use = torch.float32
                     try:
                         set_module_tensor_to_device(model.model.diffusion_model, name, device=transformer_load_device, dtype=dtype_to_use, value=state_dict[name])
-                    except:
+                    except Exception:
                         continue
         return model

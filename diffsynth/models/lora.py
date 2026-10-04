@@ -116,7 +116,7 @@ class LoRAFromCivitai:
                             break
                     else:
                         return lora_prefix, model_resource
-                except:
+                except Exception:
                     pass
         return None
 
@@ -251,7 +251,7 @@ class GeneralLoRAFromPeft:
             try:
                 weight_up = state_dict_lora[lora_name_dict[name][0]].to(device=computation_device, dtype=computation_dtype)
                 weight_down = state_dict_lora[lora_name_dict[name][1]].to(device=computation_device, dtype=computation_dtype)
-            except:
+            except Exception:
                 from ipdb import set_trace; set_trace()
             if len(weight_up.shape) == 4:
                 weight_up = weight_up.squeeze(3).squeeze(2)
